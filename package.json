@@ -1,0 +1,20 @@
+{
+  "name": "form-validation-assessment",
+  "version": "1.0.0",
+  "description": "Add some client-side validation to improve the user experience of this form and guide the users in how they should fill out the fields.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HnryNZ/form-validation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HnryNZ/form-validation/issues"
+  },
+  "homepage": "https://github.com/HnryNZ/form-validation#readme"
+}

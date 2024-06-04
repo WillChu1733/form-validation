@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/mdb.css">
+  <link rel="stylesheet" href="styles/bootstrap.css">
+  <link rel="stylesheet" href="styles/you.css">
+  <title>Form validation</title>
+</head>
+
+<body>
+  <main class="container my-5">
+    <h1>Form validation</h1>
+    <section class="mb-5">
+      <p>Add some client-side validation to improve the user experience of this form and guide the users in how they
+        should
+        fill out the fields.</p>
+      <p>You are free to write this yourself by editing the markup and adding your CSS and JavaScript in the files
+        provided (<code>you.js</code> and <code>you.css</code>),
+        or you can rework this with a framework or library of your choice.</p>
+      <h2 class="h3">Requirements</h2>
+      <ul>
+        <li>- All fields are required except for middle name</li>
+        <li>- Required fields shouldn't be able to submit a blank value</li>
+        <li>- Dates should be logical, i.e: a date of birth cannot be in the future</li>
+        <li>- Drivers license number doesn't need anything special - just cannot be blank</li>
+      </ul>
+      <h2 class="h3">Resources</h2>
+      <p><a href="https://mdbootstrap.com/legacy/4.3.2/" target="_blank">Material Design Bootstrap</a> is the UI library used for this exercise, but you are
+        welcome to use any resource on the web to help you.</p>
+    </section>
+    <section class="row">
+      <form class="col-6 mx-auto">
+        <div class="md-form">
+          <input type="text" name="first_name" id="first_name" class="form-control" />
+          <label for="first_name">First name</label>
+          <small class="feedback error"></small>
+        </div>
+        <div class="md-form">
+          <input type="text" name="middle_name" id="middle_name" class="form-control" />
+          <label for="middle_name">Middle name(s)</label>
+        </div>
+        <div class="md-form">
+          <input type="text" name="last_name" id="last_name" class="form-control" />
+          <label for="last_name">Last name</label>
+          <small class="feedback error"></small>
+        </div>
+        <div class="md-form">
+          <input type="text" name="license_number" id="license_number" class="form-control" />
+          <label for="license_number">Drivers license number</label>
+          <small class="feedback error"></small>
+        </div>
+        <div class="md-form">
+          <input type="date" name="license_expiry" id="license_expiry" class="form-control" />
+          <label class="active" for="license_expiry">Expiry date</label>
+          <small class="feedback error"></small>
+        </div>
+        <div class="md-form">
+          <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" />
+          <label class="active" for="date_of_birth">Date of birth</label>
+          <small class="feedback error"></small>
+        </div>
+        <div class="row">
+          <button type="submit" disabled="disabled" class="btn btn-primary ml-auto">Submit</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="javascript/jquery.js"></script>
+  <script src="javascript/mdb.js"></script>
+  <script src="javascript/you.js"></script>
+</body>
+
+</html>
