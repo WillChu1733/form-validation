@@ -2,14 +2,7 @@ const formFields = document.querySelectorAll('.form-control') // returns a node 
 const submitButton = document.getElementById('submit-button')
 
 let currentDate = new Date()
-
-// get the date of user input
-let expiryDate = document.getElementById('expiry_date')
-expiryDate.addEventListener('input', () => {
-  let date = new Date(expiryDate.value)
-  console.log(date)
-})
-
+let date = document.getElementById('expiry_date')
 // required fields = formFields, lastName, driversLicense, expiryDate, dob
 
 // removed submitButtontrue/false in loop as it is now set based on the value
@@ -26,20 +19,21 @@ function validateForm() {
   return allValid
 }
 
-document.addEventListener('submit', (event) => {
-  if (!validateForm() || expiryDate > currentDate) {
-    event.preventDefault()
+// true if expiryDate > currentDate
+function validateDate() {
+  let expiryDate = new Date(date.value)
+  return expiryDate > currentDate
+}
 
+document.addEventListener('submit', (event) => {
+  if (!validateForm() || !validateDate()) {
+    event.preventDefault()
+    console.log('expiry:', new Date(date.value), 'has already expired')
     alert('expiry date cannot be in the past')
-    console.log('current date:', currentDate)
-    console.log('expiry date:', expiryDate)
-    console.log('ValidateForm:', allValid)
   } else {
     alert('Form submitted 🎉')
     event.preventDefault()
-    console.log('current date:', currentDate)
-    console.log('expiry date:', expiryDate)
-    console.log('ValidateForm:', allValid)
+    console.log('Expiry:', new Date(date.value), 'Current:', currentDate)
   }
 })
 
@@ -55,5 +49,7 @@ document.addEventListener('blur', (event) => {
 
 // expiry date must be greater than todays date
 // expiryDate > currentDate
-// format todayDate in dd/mm/yyyy
+// format todayDate in dd/mm/yyyy --> Date() expects a string --> .value turns into string
 // expiryDate = user input
+
+// get the date of user input
