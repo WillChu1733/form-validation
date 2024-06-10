@@ -19,6 +19,7 @@ function validateForm() {
   return allValid
 }
 
+// check if expiry date is in future
 // true if expiryDate > currentDate
 function validateDate() {
   let expiryDate = new Date(date.value)
