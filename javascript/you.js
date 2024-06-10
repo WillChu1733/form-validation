@@ -3,6 +3,7 @@ const submitButton = document.getElementById('submit-button')
 
 let currentDate = new Date()
 let date = document.getElementById('expiry_date')
+let birth = document.getElementById('dob')
 // required fields = formFields, lastName, driversLicense, expiryDate, dob
 
 // removed submitButtontrue/false in loop as it is now set based on the value
@@ -26,8 +27,16 @@ function validateDate() {
   return expiryDate > currentDate
 }
 
+// check if birthday is in past
+// true if birthDate < currentDate
+function validateBirthDate() {
+  let birthDate = new Date(birth.value)
+  return birthDate < currentDate
+}
+
+// NEED TO MAKE ALERT DEPENDENT ON VALIDATION FAILURE
 document.addEventListener('submit', (event) => {
-  if (!validateForm() || !validateDate()) {
+  if (!validateForm() || !validateDate() || !validatebirthDate()) {
     event.preventDefault()
     console.log('expiry:', new Date(date.value), 'has already expired')
     alert('expiry date cannot be in the past')
