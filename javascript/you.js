@@ -36,14 +36,34 @@ function validateBirthDate() {
 
 // NEED TO MAKE ALERT DEPENDENT ON VALIDATION FAILURE
 document.addEventListener('submit', (event) => {
-  if (!validateForm() || !validateDate() || !validatebirthDate()) {
+  if (!validateForm()) {
     event.preventDefault()
-    console.log('expiry:', new Date(date.value), 'has already expired')
-    alert('expiry date cannot be in the past')
-  } else {
-    alert('Form submitted 🎉')
-    event.preventDefault()
-    console.log('Expiry:', new Date(date.value), 'Current:', currentDate)
+    alert('ensure all fields are filled.')
+    return
+  }
+
+  let expiryDateValid = validateDate()
+  let birthDateValid = validateBirthDate()
+
+  switch (true) {
+    case !birthDateValid && !expiryDateValid:
+      event.preventDefault()
+      alert(
+        'Expiry date cannot be in the past and Birth date cannot be in the future'
+      )
+      break
+    case !expiryDateValid:
+      event.preventDefault()
+      alert('Expiry date cannot be in the past.')
+      break
+    case !birthDateValid:
+      event.preventDefault()
+      alert('Birth date cannot be in the future')
+      break
+
+    default:
+      alert('Form submitted 🎉')
+      event.preventDefault()
   }
 })
 
@@ -64,3 +84,5 @@ document.addEventListener('blur', (event) => {
 // expiryDate = user input
 
 // get the date of user input
+// if the error is due to validateDate error - output date cannot be in past
+// if the error is due to validateBirthDate error - output birthdate cannot be in future
